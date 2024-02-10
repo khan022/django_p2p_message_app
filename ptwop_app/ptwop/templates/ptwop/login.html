@@ -1,12 +1,12 @@
 {% extends 'ptwop/base.html' %}
 
-{% block title %} Sign Up | {% endblock %}
+{% block title %} Log In | {% endblock %}
 
 {% block content %}
 
 <div class="p-10 lg:p-20 text-center">
 
-    <h1 class="text-3xl lg:text-6xl text-black">Sign Up</h1>
+    <h1 class="text-3xl lg:text-6xl text-black">Log In</h1>
 
 </div>
 
@@ -22,16 +22,10 @@
     <div class="mb-5">
         <label class="text-black">Password</label>
 
-        <input type="password" name="password1" class="w-full mt-2 px-4 py-2 rounded-xl">
+        <input type="password" name="password" class="w-full mt-2 px-4 py-2 rounded-xl">
 
     </div>
 
-    <div class="mb-5">
-        <label class="text-black">Repeat Password</label>
-
-        <input type="password" name="password2" class="w-full mt-2 px-4 py-2 rounded-xl">
-
-    </div>
 
     {% if form.errors %}
         {% for field in form %}
@@ -44,7 +38,7 @@
     {% endif %}
 
     <div style="text-align: right;">
-        <button class="px-5 py-3 rounded-xl text-black bg-blue-500 hover:bg-blue-400 hover:text-gray-100">Submit</button>
+        <button class="px-5 py-3 rounded-xl text-black bg-blue-500 hover:bg-blue-400 hover:text-gray-100">LogIn</button>
     </div>
     
 
