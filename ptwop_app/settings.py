@@ -81,6 +81,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ptwop_app.wsgi.application'
 ASGI_APPLICATION = 'ptwop_app.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND': 'channels.layer.InMemoryChaneelLayer'
+    }
+}
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
