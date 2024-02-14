@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import socket
 # Get the current IP address
-hostname = socket.gethostname()
-ip_address = socket.gethostbyname(hostname)
+# hostname = socket.gethostname()
+# ip_address = socket.gethostbyname(hostname)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,10 +29,11 @@ SECRET_KEY = 'django-insecure-9f3es0i#u07wn%)jm)o7r*l^-=by7e5wawo=o2ax=kt(3h6v#6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ip_address, '127.0.0.1', 'localhost']
+# ALLOWED_HOSTS = [ip_address, '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/rooms'
+LOGIN_REDIRECT_URL = '/rooms/'
 LOGIN_URL = '/login/'
 
 
@@ -83,8 +84,12 @@ ASGI_APPLICATION = 'ptwop_app.asgi.application'
 
 CHANNEL_LAYERS = {
     'default':{
-        'BACKEND': 'channels.layer.InMemoryChaneelLayer'
-    }
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        # "CONFIG": {
+        #     "hosts": [("127.0.0.1", 6379)],
+        # },
+    },
 }
 
 # Database
