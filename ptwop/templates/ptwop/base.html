@@ -8,6 +8,13 @@
         <title>{% block title %} {% endblock %}PtwoP </title>
 
         <script src = "https://cdn.tailwindcss.com"></script>
+
+        <style>
+            .messages {
+                height: 400px;
+                overflow-y: auto;
+            }
+        </style>
     </head>
 
     <body class="bg-blue-300">
@@ -33,7 +40,6 @@
         </nav>
 
         {% block content %}
-
         {% endblock %}
 
         {% block scripts %}
