@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "ptwop_app/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "ptwop_app/wsgi.py"
+        }
+    ]
+}
