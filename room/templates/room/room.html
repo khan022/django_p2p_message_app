@@ -13,20 +13,13 @@
 <div class="lg:w-2/4 mx-4 lg:mx-auto p-4 bg-white rounded-xl">
     <div class="chat-messages space-y-3" id="chat-messages">
         
-        <div class="p-4 bg-gray-200 rounded-xl">
-            <p class="font-semibold">Username</p>
-            <p>The message lorem ipsum dolor sit amet.</p>
-        </div>
-        
-        <div class="p-4 bg-gray-200 rounded-xl">
-            <p class="font-semibold">Username</p>
-            <p>The message lorem ipsum dolor sit amet.</p>
-        </div>
+        {% for message in messages %}
+            <div class="p-4 bg-gray-200 rounded-xl">
+                <p class="font-semibold">{{ message.user.username}}</p>
+                <p>{{ message.content }}</p>
+            </div>
 
-        <div class="p-4 bg-gray-200 rounded-xl">
-            <p class="font-semibold">Username</p>
-            <p>The message lorem ipsum dolor sit amet.</p>
-        </div>
+        {% endfor %}
         
     </div>
 </div>
@@ -50,10 +43,11 @@
 {{ request.user.username|json_script:"json-username" }}
 
 <script>
-    // the websocket works with channels v3.0.5 
+    
     const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
     const userName = JSON.parse(document.getElementById('json-username').textContent);
 
+    // the websocket works with channels v3.0.5 
     const ws_scheme = window.location.protocol == 'https:' ? 'wss' : 'ws';
     const chatSocket = new WebSocket(
         ws_scheme + '://'
